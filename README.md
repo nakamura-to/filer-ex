@@ -59,9 +59,9 @@ $ ./gradlew :apt-client:gen
 
 Refresh Eclipse workspace.
 
-### 4. Result
+### 4. See the Eclipse Error Log view.
 
-Following error is shown in the Eclipse Error Log view.
+Following error is shown in the view.
 
 ```
 null
