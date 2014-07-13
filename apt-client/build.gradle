@@ -1,0 +1,33 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+dependencies {
+    compile project(':apt-lib')
+}
+
+def dir = 'src/main/java/example'
+def max = 2001
+
+/**
+ * generate annotated java files
+ */
+task gen(dependsOn: 'del') << {
+    mkdir file(dir)
+    for (int i = 0; i < max; i++) {
+        String fileName = String.format("Class%04d", i);
+        def path = "${dir}/${fileName}.java"
+        def writer = new FileWriter(file(path))
+        writer.write("package example; @Deprecated class ${fileName} {}")
+        writer.close()
+    }
+    println "${max} files generated."
+}
+
+/**
+ *delete all java files
+ */
+task del << {
+    delete dir
+}
+
+apply from:'eclipse.gradle'
