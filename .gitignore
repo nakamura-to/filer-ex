@@ -4,5 +4,5 @@ build
 .classpath
 .project
 .settings
-apt-client/src/main/java
+apt-client/src/main/java/example
 .factorypath
